@@ -4,7 +4,7 @@ from rest_framework import decorators
 from .models import Car, History
 from rest_framework.response import Response
 
-class CarViewSet(viewsets.ViewSet):
+class CarViewSet(viewsets.ModelViewSet):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
     
@@ -18,7 +18,7 @@ class CarViewSet(viewsets.ViewSet):
         
         return queryset
         
-class HistoryViewSet(viewsets.ViewSet):
+class HistoryViewSet(viewsets.ModelViewSet):
     queryset = History.objects.all()
     serializer_class = HistorySerializer
     permission_classes = [permissions.IsAuthenticated]
